@@ -12,7 +12,7 @@ const introdata = {
         third: "I Design Beautiful UI",
     },
     description: "Welcome to my portfolio.Here you can know everything about me my carrer and my carrer in web development and my journey",
-    your_img_url: "/ME.JPG",
+    your_img_url: "https://i.ibb.co/VWjsG6n/IMG-0260-2.jpg",
 };
 
 const dataabout = {
