@@ -123,7 +123,7 @@ const dataportfolio = [{
 {
     projectName: "ABC CAR Portal",
     img: "https://i.ibb.co/jGjy6Jn/M9.png",
-    desctiption: "(November - 2022) A website application that offers a marketplace for buying and selling used cars. It allows users to browse a wide selection of pre-owned vehicles and place bids on cars they are interested in, providing them with the potential to purchase a vehicle at a lower price.(Spring Boot, Spring Security, JSP, Bootstrap, JavaScript, MySQL, Spring Boot)",
+    desctiption: "(November - 2022) A website application that offers a marketplace for buying and selling used cars.It allows users to browse a wide selection of pre-owned vehicles and place bids on cars they are interested in, providing them with the potential to purchase a vehicle at a lower price.(Spring Boot, Spring Security, JSP, Bootstrap, JavaScript, MySQL, Spring Boot)",
     link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
 },
 
