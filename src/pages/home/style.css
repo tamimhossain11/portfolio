@@ -96,6 +96,7 @@ section {
     background-position: center;
     min-height: 700px;
     position: relative;
+    margin-top: 200px;
 }
 
 .ac_btn {
@@ -197,6 +198,7 @@ section {
         height: 600px;
         min-height: 75vh;
         margin-bottom: 30px;
+        margin-top: 50px;
     }
     .intro_sec .h_bg-image .block {
         top: unset;
@@ -231,4 +233,7 @@ section {
 
 .intro_sec .h_bg-image {
     filter: saturate(0.5);
+}
+.contact{
+    padding-bottom: 10px;
 }
