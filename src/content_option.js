@@ -16,149 +16,142 @@ const introdata = {
 };
 
 const dataabout = {
-    title: "abit about my self",
-    aboutme: "Enthusiastic and self-motivated Boy.Capable of handling responsibility & have good communication skills.Enjoing learning and applying new skills,Like to deal with challenges and apply my creative ideas. I dedicated myself to give the best service to my organization",
+    title: "About Me",
+    aboutme: "I'm a passionate Full Stack Developer with expertise in modern web technologies. Currently working as a Product Engineer at BIMS Technologies Inc., I specialize in building scalable applications using React.js, Node.js, and TypeScript. I have experience working with various databases (PostgreSQL, MySQL, MongoDB), cloud platforms (AWS, Google Cloud), and DevOps tools. I'm enthusiastic about learning new technologies and solving complex problems. I enjoy creating beautiful, user-friendly interfaces and robust backend systems. My goal is to deliver high-quality solutions that make a positive impact.",
 };
 const worktimeline = [{
     jobtitle: "Bangla",
     where: "Mother Language",
-
 },
 {
     jobtitle: "English",
-    where: "Moderate",
-
+    where: "Fluent",
 },
 {
     jobtitle: "Hindi",
     where: "Can Speak",
-
 },
 ];
 
-const skills = [{
-    name: "React.JS",
-    value: 70,
-},
-{
-    name: "Next.JS",
-    value: 55,
-},
-{
-    name: "Tailwind CSS",
-    value: 60,
-},
-{
-    name: "Angular",
-    value: 85,
-},
-
-{
-    name: "HTML5",
-    value: 80,
-},
-{
-    name: "CSS",
-    value: 85,
-},
-{
-    name: "Javascript",
-    value: 70,
-},
-{
-    name: "Java",
-    value: 70,
-},
-{
-    name: "J Query",
-    value: 40,
-},
-{
-    name: "Bootstrap",
-    value: 80,
-},
-{
-    name: "MY SQL",
-    value: 70,
-},
-{
-    name: "React Native",
-    value: 30,
-},
+const workExperience = [
+    {
+        company: "BIMS Technologies Inc.",
+        position: "Product Engineer",
+        type: "Contract",
+        duration: "Jun 2024 - Present",
+        durationMonths: "1 yr 7 mos",
+        location: "Philippines · Remote",
+        skills: ["React.js", "Node.js", "TypeScript", "PostgreSQL", "MySQL", "Python", "MongoDB", "Wrike", "Webflow", "WordPress", "Contentful", "Google Cloud", "AWS S3", "cPanel", "Vercel", "Netlify", "QuickBooks API"],
+        responsibilities: [
+            "Developed and maintained web applications using React.js and Node.js",
+            "Created GiyaPay QR - An over-the-counter payment system through scanning QR code and redirecting to gateway of GiyaPay using its API",
+            "Worked with Medusa JS and Mercur JS for creating the Maretinda App - An e-commerce platform in Philippines",
+            "Developed websites for DepEd of Philippines and the main website for BIMS Technologies using WordPress",
+            "Worked with Contentful and its API for managing a headless CMS for GiyaPay main website",
+            "Integrated QuickBooks API with Wrike for seamless project management and financial tracking",
+            "Gained expertise in DevOps platforms including Google Cloud, AWS using S3 bucket, cPanels, Vercel, Netlify",
+            "Collaborated using project management tools like Wrike and Webflow"
+        ]
+    },
+    {
+        company: "Astria Corporation Philippines",
+        position: "Software Engineer Intern",
+        type: "Internship",
+        duration: "Feb 2024 - Feb 2024",
+        durationMonths: "1 mo",
+        location: "Philippines · Remote",
+        skills: ["TypeScript", "Node.js", "PostgreSQL", "MySQL", "Python", "MongoDB", "FTK Enterprise API"],
+        responsibilities: [
+            "Designed the Front end of Astria Ingest Website - A new product of Astria Corporation for providing digital forensics service with FTK Enterprise",
+            "Built the API to make the Integration process work",
+            "Worked with FTK Forensics Tool Kits API to design the integration for third-party users in Philippines"
+        ]
+    }
 ];
 
+// Highlighted/Most Demanding Skills (shown by default)
+const highlightedSkills = [
+    { name: "React.js", value: 90, category: "Frontend" },
+    { name: "Node.js", value: 85, category: "Backend" },
+    { name: "TypeScript", value: 88, category: "Language" },
+    { name: "JavaScript", value: 90, category: "Language" },
+    { name: "PostgreSQL", value: 80, category: "Database" },
+    { name: "MySQL", value: 85, category: "Database" },
+    { name: "Python", value: 75, category: "Language" },
+    { name: "MongoDB", value: 70, category: "Database" },
+];
 
-const dataportfolio = [{
-    projectName: "MyScope NFT",
-    img: "https://i.ibb.co/FK8ck50/Whats-App-Image-2023-10-14-at-23-57-27-d5ffe45b.jpg",
-    desctiption: " (October to November- 2023)An NFT marketplace project where my role is to develop the frontend with next.js also its a private client required project for enterprise perpouse.More upgrade and updation is in process...",
-    link: "https://github.com/tamimhossain11/",
-},
-{
-    projectName: "Crypto stake",
-    img: "https://i.ibb.co/r2KcYmN/Whats-App-Image-2023-11-01-at-02-28-33-ed22064a.jpg",
-    desctiption: " (september- 2023)A gamble project which frontend developed on React.js framework for providing users the top notch experience on gaming and using crypto online.More upgrade and updation is in process...",
-    link: "https://github.com/tamimhossain11/",
-},
+// All Skills (shown in dropdown)
+const allSkills = [
+    // Frontend
+    { name: "React.js", value: 90, category: "Frontend" },
+    { name: "Next.js", value: 75, category: "Frontend" },
+    { name: "JavaScript", value: 90, category: "Frontend" },
+    { name: "TypeScript", value: 88, category: "Frontend" },
+    { name: "HTML5", value: 95, category: "Frontend" },
+    { name: "CSS3", value: 90, category: "Frontend" },
+    { name: "Tailwind CSS", value: 85, category: "Frontend" },
+    { name: "Bootstrap", value: 85, category: "Frontend" },
+    { name: "Angular", value: 70, category: "Frontend" },
+    { name: "React Native", value: 60, category: "Frontend" },
+    { name: "jQuery", value: 70, category: "Frontend" },
+    
+    // Backend
+    { name: "Node.js", value: 85, category: "Backend" },
+    { name: "Express.js", value: 80, category: "Backend" },
+    { name: "RESTful APIs", value: 88, category: "Backend" },
+    
+    // Databases
+    { name: "PostgreSQL", value: 80, category: "Database" },
+    { name: "MySQL", value: 85, category: "Database" },
+    { name: "MongoDB", value: 70, category: "Database" },
+    
+    // Languages
+    { name: "Python", value: 75, category: "Language" },
+    { name: "Java", value: 70, category: "Language" },
+    
+    // DevOps & Cloud
+    { name: "AWS (S3)", value: 75, category: "DevOps" },
+    { name: "Google Cloud", value: 70, category: "DevOps" },
+    { name: "Vercel", value: 85, category: "DevOps" },
+    { name: "Netlify", value: 80, category: "DevOps" },
+    { name: "cPanel", value: 75, category: "DevOps" },
+    { name: "Git", value: 85, category: "DevOps" },
+    { name: "GitHub", value: 90, category: "DevOps" },
+    
+    // CMS & Tools
+    { name: "WordPress", value: 80, category: "CMS" },
+    { name: "Contentful", value: 75, category: "CMS" },
+    { name: "Webflow", value: 70, category: "CMS" },
+    { name: "Wrike", value: 75, category: "Tools" },
+    { name: "Medusa JS", value: 70, category: "Framework" },
+    { name: "Mercur JS", value: 70, category: "Framework" },
+    { name: "FTK Enterprise API", value: 65, category: "API" },
+    { name: "QuickBooks API", value: 75, category: "API" },
+];
 
-{
-    projectName: "AI Hub/Genius",
-    img: "https://i.ibb.co/P5ngSM0/screencapture-genius-saas-platform-vercel-app-2023-11-01-02-44-07.png",
-    desctiption: " (August- 2023)A Chatgpt ApI project, developed on Next.js framework for personal purpose and serving users who are surfing on google for several kinds of products like,AI image generation, AI video generation, AI photo generation and AI Audio generation and more facilities are under planning and development.",
-    link: "https://genius-saas-platform.vercel.app/",
-},
+const skills = highlightedSkills; // For backward compatibility
 
-{
-    projectName: "Know Your Neighborhood",
-    img: "https://i.ibb.co/x5LZT3R/M10.png",
-    desctiption: "(December - 2022) A website application that provides users with information about their local neighborhood. The application allows users to register, login using a Facebook account through OAuth2, Post stores, search another store and edit their personal profile page. (ReactJS, Tailwind CSS, Spring Boot, Spring Security, JSON Web Token (JWT), Reacthook-form, Axios, MySQL)",
-    link: "#",
-},
-{
-    projectName: "Meals On Wheels",
-    img: "https://i.ibb.co/Dw9rQL1/M11.jpg",
-    desctiption: "(December - 2022) A website application that provides Food to the people who are unable to get food or prepare food. The application allows users to register, login,Donors to donate though API Call,partner to Post meals,And member to request meals . (ReactJS, Spring Boot, Spring Security, JSON Web Token (JWT), Reacthook-form, Axios, MySQL)",
-    link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
-},
-{
-    projectName: "ABC CAR Portal",
-    img: "https://i.ibb.co/jGjy6Jn/M9.png",
-    desctiption: "(November - 2022) A website application that offers a marketplace for buying and selling used cars.It allows users to browse a wide selection of pre-owned vehicles and place bids on cars they are interested in, providing them with the potential to purchase a vehicle at a lower price.(Spring Boot, Spring Security, JSP, Bootstrap, JavaScript, MySQL, Spring Boot)",
-    link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
-},
 
-{
-    projectName: "ABC Learning & Training Institute",
-    img: "https://i.ibb.co/L5SqWtk/M1.png",
-    desctiption: " (May- 2022) Designed and developed a website to provide information of the ABC Learning IT Training Institute (HTML, CSS, JavaScript, jQuery)",
-    link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
-},
-{
-    projectName: "MCQ System",
-    img: "https://i.ibb.co/4PdvLF1/M3.png",
-    desctiption: "(june - 2022) Developed an MCQ System for educational purposes.(IntelliJ)",
-    link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
-},
-{
-    projectName: "AAA Web Hosting with CMS",
-    img: "https://i.ibb.co/YbKn0ST/M8.png",
-    desctiption: "(September - 2022) Developed a website hosting service using (Liferay Liferay, MySQL)",
-    link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
-},
-{
-    projectName: "ABC Jobs Community Portal",
-    img: "https://i.ibb.co/kqVxMX3/M2.png",
-    desctiption: "(October - 2022) A website application that allows users to find a job and apply for job opportunities. Users can register and login to the website, search for another user, edit profiles, change password, and chat system. The application also includes administration that has the authority to manage the user data and also sends a bulk email with the email sender. (Spring MVC, JSP, CSS, Bootstrap, JavaScript, MySQL)",
-    link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
-},
-
-{
-    projectName: "ABC CAR Portal",
-    img: "https://i.ibb.co/jGjy6Jn/M9.png",
-    desctiption: "(November - 2022) A website application that offers a marketplace for buying and selling used cars. It allows users to browse a wide selection of pre-owned vehicles and place bids on cars they are interested in, providing them with the potential to purchase a vehicle at a lower price.(Spring Boot, Spring Security, JSP, Bootstrap, JavaScript, MySQL, Spring Boot)",
-    link: "https://github.com/tamimhossain11/BDSE04-Lithan-projects",
-},
-
+const dataportfolio = [
+    {
+        projectName: "RoboSub Competition Website",
+        img: "https://i.ibb.co/VWjsG6n/IMG-0260-2.jpg",
+        desctiption: "(2024) Developed the official website for RoboSub competition held in Los Angeles, California. Served as Web Development Lead for 'Dreams of Bangladesh' team. The website featured competition information, team registration, live updates, and results. (React.js, Node.js, Modern Web Technologies)",
+        link: "#",
+    },
+    {
+        projectName: "GiyaPay QR Payment System",
+        img: "https://i.ibb.co/FK8ck50/Whats-App-Image-2023-10-14-at-23-57-27-d5ffe45b.jpg",
+        desctiption: "(2024) Created an over-the-counter payment system through scanning QR code and redirecting to GiyaPay gateway using its API. Integrated with QuickBooks API for financial tracking. (React.js, Node.js, QuickBooks API, GiyaPay API)",
+        link: "#",
+    },
+    {
+        projectName: "Maretinda E-commerce Platform",
+        img: "https://i.ibb.co/P5ngSM0/screencapture-genius-saas-platform-vercel-app-2023-11-01-02-44-07.png",
+        desctiption: "(2024) Built a comprehensive e-commerce platform for the Philippines market using Medusa JS and Mercur JS. Features include product management, shopping cart, payment integration, and order tracking. (Medusa JS, Mercur JS, React.js, Node.js, PostgreSQL)",
+        link: "#",
+    },
 ];
 
 const contactConfig = {
@@ -172,6 +165,49 @@ const contactConfig = {
     YOUR_USER_ID: "user_id",
 };
 
+const extraCurricularActivities = [
+    {
+        title: "RoboSub Competition - Los Angeles, California",
+        role: "Web Development Lead",
+        organization: "Dreams of Bangladesh",
+        duration: "2024",
+        description: "Served as Web Development Lead for the 'Dreams of Bangladesh' team at RoboSub competition in Los Angeles, California. Developed and maintained the competition website, handling team registration, live updates, and results display.",
+        skills: ["Web Development", "Team Leadership", "React.js", "Node.js"]
+    },
+    {
+        title: "WICE (Malaysia) - Executive",
+        role: "Executive",
+        organization: "Dreams of Bangladesh",
+        duration: "September 2025",
+        description: "Joined WICE (Malaysia) as an Executive on behalf of Bangladeshi teams under Dreams of Bangladesh. Coordinated team activities, managed communications, and facilitated participation in international robotics competitions.",
+        skills: ["Team Management", "Coordination", "International Relations"]
+    },
+    {
+        title: "Innovation World Cup - National Round Judge",
+        role: "National Round Judge (Technology Category)",
+        organization: "Innovation World Cup - Bangladesh",
+        duration: "November 2024",
+        description: "Performed as a National Round Judge in the Technology Category of Innovation World Cup National Round Bangladesh. Evaluated innovative technology projects and provided expert feedback to participants.",
+        skills: ["Judging", "Technology Evaluation", "Innovation Assessment"]
+    },
+    {
+        title: "Innovation World Cup - International Round",
+        role: "Executive",
+        organization: "Innovation World Cup - Indonesia",
+        duration: "January 2025",
+        description: "Participating as an Executive for the International Round in Indonesia. Supporting the organization and coordination of the international competition event.",
+        skills: ["Event Management", "Coordination", "International Events"]
+    },
+    {
+        title: "Robotics & Arduino Programming",
+        role: "Developer & Enthusiast",
+        organization: "Personal Projects",
+        duration: "Ongoing",
+        description: "Active involvement in robotics and Arduino programming. Developed various projects combining hardware and software solutions for automation and robotics applications.",
+        skills: ["Arduino", "Robotics", "Embedded Systems", "C/C++", "Hardware Integration"]
+    }
+];
+
 const socialprofils = {
     github: "https://github.com/tamimhossain11",
     facebook: "https://www.facebook.com/HSNTamim/",
@@ -183,7 +219,11 @@ export {
     dataabout,
     dataportfolio,
     worktimeline,
+    workExperience,
     skills,
+    highlightedSkills,
+    allSkills,
+    extraCurricularActivities,
     introdata,
     contactConfig,
     socialprofils,

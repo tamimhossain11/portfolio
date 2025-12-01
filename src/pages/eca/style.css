@@ -1,0 +1,265 @@
+.sec_sp {
+    margin-bottom: calc(3rem + 5.128vw);
+}
+
+.About-header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-color-2), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+}
+
+.section-subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-color-2);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--text-color-2), transparent);
+    border-radius: 2px;
+}
+
+.t_border {
+    border-color: var(--text-color) !important;
+    border-width: 2px !important;
+    opacity: 0.3;
+}
+
+/* ECA Timeline Styles */
+.eca-timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+.eca-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--text-color-2), transparent);
+    border-radius: 2px;
+}
+
+.eca-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.eca-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 40px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--text-color-2);
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.eca-item:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .eca-item {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .eca-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-color);
+}
+
+.eca-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.eca-title-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.eca-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-color-2);
+    margin-bottom: 8px;
+    font-family: Marcellus;
+}
+
+.eca-role {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color-2);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.eca-meta {
+    text-align: right;
+    flex: 1;
+    min-width: 200px;
+}
+
+.eca-organization {
+    font-size: 1.1rem;
+    color: var(--text-color-2);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.eca-duration {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.eca-content {
+    margin-top: 20px;
+}
+
+.eca-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.eca-skills {
+    margin-top: 15px;
+}
+
+.eca-skills strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-color-2);
+    font-size: 0.95rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-color);
+    color: var(--text-color-2);
+    transform: translateY(-2px);
+}
+
+[data-theme="light"] .skill-tag {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .eca-timeline {
+        padding-left: 20px;
+    }
+
+    .eca-item::before {
+        left: -28px;
+    }
+
+    .eca-header {
+        flex-direction: column;
+    }
+
+    .eca-meta {
+        text-align: left;
+    }
+
+    .eca-title {
+        font-size: 1.2rem;
+    }
+}
+
