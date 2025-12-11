@@ -10,18 +10,28 @@ const Headermain = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleToggle = () => {
-    setActive(!isActive);
-    document.body.classList.toggle("ovhidden");
+    const newState = !isActive;
+    setActive(newState);
+    if (newState) {
+      document.body.classList.add("ovhidden");
+    } else {
+      document.body.classList.remove("ovhidden");
+    }
+  };
+
+  const handleLinkClick = () => {
+    setActive(false);
+    document.body.classList.remove("ovhidden");
   };
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setIsSmallScreen(true);
+      const isMobile = window.innerWidth <= 768;
+      setIsSmallScreen(isMobile);
+      if (!isMobile) {
+        // Always close menu when switching to desktop
         setActive(false);
-      } else {
-        setIsSmallScreen(false);
-        setActive(false);
+        document.body.classList.remove("ovhidden");
       }
     };
 
@@ -30,12 +40,20 @@ const Headermain = () => {
       setIsScrolled(scrollPosition > 50);
     };
 
+    // Initialize on mount
+    const isMobile = window.innerWidth <= 768;
+    setIsSmallScreen(isMobile);
+    setActive(false);
+    document.body.classList.remove("ovhidden");
+
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
+      // Cleanup: ensure body scroll is restored
+      document.body.classList.remove("ovhidden");
     };
   }, []);
 
@@ -78,33 +96,33 @@ const Headermain = () => {
         </div>
 
         {isSmallScreen && (
-          <div className={`site__navigation ${!isActive ? "menu__opend" : ""}`}>
+          <div className={`site__navigation ${isActive ? "menu__opend" : ""}`}>
             <div className="bg__menu h-100">
               <div className="menu__wrapper">
                 <div className="menu__container p-3">
                   <ul className="the_menu">
                     <li className="menu_item">
-                      <a onClick={handleToggle} href="#home" className="my-3">
+                      <a onClick={handleLinkClick} href="#home" className="my-3">
                         Home
                       </a>
                     </li>
                     <li className="menu_item">
-                      <a onClick={handleToggle} href="#about" className="my-3">
+                      <a onClick={handleLinkClick} href="#about" className="my-3">
                         About me
                       </a>
                     </li>
                     <li className="menu_item">
-                      <a onClick={handleToggle} href="#portfolio" className="my-3">
+                      <a onClick={handleLinkClick} href="#portfolio" className="my-3">
                         Project Experience
                       </a>
                     </li>
                     <li className="menu_item">
-                      <a onClick={handleToggle} href="#eca" className="my-3">
+                      <a onClick={handleLinkClick} href="#eca" className="my-3">
                         ECA
                       </a>
                     </li>
                     <li className="menu_item">
-                      <a onClick={handleToggle} href="#contact" className="my-3">
+                      <a onClick={handleLinkClick} href="#contact" className="my-3">
                         Contact me
                       </a>
                     </li>

@@ -28,6 +28,7 @@ html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -49,6 +50,20 @@ body {
     border-right: 10px solid var(--primary-color);
     transition: all 0.3s ease;
     position: relative;
+    width: 100%;
+}
+
+body.ovhidden {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
 }
 
 ul {

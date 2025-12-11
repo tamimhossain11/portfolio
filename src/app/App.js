@@ -23,20 +23,24 @@ export default function App() {
           const targetId = href.substring(1);
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            const headerOffset = 80;
+            // Calculate header offset (adjust based on header height)
+            const headerOffset = window.innerWidth <= 768 ? 70 : 80;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth"
+            // Use requestAnimationFrame for better mobile performance
+            requestAnimationFrame(() => {
+              window.scrollTo({
+                top: Math.max(0, offsetPosition),
+                behavior: "smooth"
+              });
             });
           }
         }
       }
     };
 
-    document.addEventListener("click", handleAnchorClick);
+    document.addEventListener("click", handleAnchorClick, { passive: false });
     return () => {
       document.removeEventListener("click", handleAnchorClick);
     };
