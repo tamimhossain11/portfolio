@@ -10,7 +10,7 @@ export const Portfolio = () => {
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
-          <title> Project Experience {meta.title} </title>{" "}
+          <title> Project Experience | {meta.title} </title>{" "}
           <meta name="description" content={meta.description} />
         </Helmet>
         <Row className="mb-5 mt-3 pt-md-3">
@@ -21,13 +21,41 @@ export const Portfolio = () => {
         </Row>
         <div className="mb-5 po_items_ho">
           {dataportfolio.map((data, i) => {
+            if (data.isComingSoon) {
+              return (
+                <div key={i} className="po_item coming-soon-item">
+                  <div className="coming-soon-content">
+                    <div className="coming-soon-icon">🚀</div>
+                    <h4>{data.projectName}</h4>
+                    <p>{data.description}</p>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <div key={i} className="po_item">
-                <img src={data.img} alt="" />
+                <img src={data.img} alt={data.projectName} />
+                {data.badge && <span className="project-badge">{data.badge}</span>}
+                {data.year && <span className="project-year">{data.year}</span>}
                 <div className="content">
                   <h4>{data.projectName}</h4>
-                  <p style={{fontSize:"12px"}}>{data.desctiption}</p>
-                  <a href={data.link}>view project</a>
+                  <p>{data.description}</p>
+                  {data.videoUrl && (
+                    <a 
+                      href={data.videoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="view-link"
+                    >
+                      🎥 Watch Demo
+                    </a>
+                  )}
+                  {data.link && data.link !== "#" && (
+                    <a href={data.link} target="_blank" rel="noopener noreferrer" className="view-link">
+                      View Project
+                    </a>
+                  )}
                 </div>
               </div>
             );

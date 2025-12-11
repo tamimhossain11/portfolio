@@ -135,23 +135,81 @@ const skills = highlightedSkills; // For backward compatibility
 
 const dataportfolio = [
     {
-        projectName: "RoboSub Competition Website",
-        img: "https://i.ibb.co/VWjsG6n/IMG-0260-2.jpg",
-        desctiption: "(2024) Developed the official website for RoboSub competition held in Los Angeles, California. Served as Web Development Lead for 'Dreams of Bangladesh' team. The website featured competition information, team registration, live updates, and results. (React.js, Node.js, Modern Web Technologies)",
+        projectName: "GiyaPay QR – Smart Payment & Verification System",
+        img: "/giyapayqr.png",
+        description: "GiyaPay QR is an AI-enhanced payment and verification solution designed to make secure digital transactions effortless. The system generates unique QR codes with embedded, encrypted payloads containing user and transaction data.",
+        fullDescription: "GiyaPay QR is an AI-enhanced payment and verification solution designed to make secure digital transactions effortless. The system generates unique QR codes with embedded, encrypted payloads containing user and transaction data. These QR codes can be scanned from any device and instantly verified through a backend endpoint.",
+        keyHighlights: [
+            "Secure QR generation using encrypted JSON payloads",
+            "Real-time verification via Node.js/Express backend",
+            "Fast scanning powered by html5-qrcode on the frontend",
+            "Seamless integration with payment gateways (bKash, Nagad, Visa, etc.)",
+            "Designed for fintech platforms requiring fast authentication and fraud prevention",
+            "Built for mobile-first, high-volume usage"
+        ],
+        idealFor: "Payment gateways, event registrations, merchant verification, fintech platforms, and secure check-in/check-out systems",
+        technologies: ["React.js", "Node.js", "Express.js", "html5-qrcode", "Encryption", "Payment Gateway APIs"],
+        videoUrl: null, // To be added later
         link: "#",
+        badge: "Fintech",
+        year: "2024"
     },
     {
-        projectName: "GiyaPay QR Payment System",
-        img: "https://i.ibb.co/FK8ck50/Whats-App-Image-2023-10-14-at-23-57-27-d5ffe45b.jpg",
-        desctiption: "(2024) Created an over-the-counter payment system through scanning QR code and redirecting to GiyaPay gateway using its API. Integrated with QuickBooks API for financial tracking. (React.js, Node.js, QuickBooks API, GiyaPay API)",
+        projectName: "Maretinda – Multi-Vendor E-Commerce Platform",
+        img: "/maretinda.png",
+        description: "Maretinda is a complete multi-vendor e-commerce ecosystem built with performance, scalability, and user experience at the core. The platform includes storefront, vendor panel, and admin panel—each deployed on Google Cloud.",
+        fullDescription: "Maretinda is a complete multi-vendor e-commerce ecosystem built with performance, scalability, and user experience at the core. The platform includes storefront, vendor panel, and admin panel—each deployed on Google Cloud for reliability and speed.",
+        keyHighlights: [
+            "Multi-vendor marketplace with product, order, and inventory management",
+            "Admin dashboard with full control of vendors, products, and analytics",
+            "Vendor panel for independent store owners",
+            "Search powered by Algolia",
+            "Email notifications powered by Resend",
+            "Real-time chat support with TalkJS",
+            "Deployed on Google Cloud Run with optimized CI/CD workflows",
+            "Clean UI, mobile-ready storefront, and optimized performance"
+        ],
+        idealFor: "Startups, SMEs, and enterprises wanting a full-stack, customizable multi-vendor e-commerce solution",
+        technologies: ["Medusa.js", "Next.js", "Google Cloud Run", "Algolia", "Resend", "TalkJS", "MySQL"],
+        videoUrl: null, // To be added later
         link: "#",
+        badge: "E-Commerce",
+        year: "2024"
     },
     {
-        projectName: "Maretinda E-commerce Platform",
-        img: "https://i.ibb.co/P5ngSM0/screencapture-genius-saas-platform-vercel-app-2023-11-01-02-44-07.png",
-        desctiption: "(2024) Built a comprehensive e-commerce platform for the Philippines market using Medusa JS and Mercur JS. Features include product management, shopping cart, payment integration, and order tracking. (Medusa JS, Mercur JS, React.js, Node.js, PostgreSQL)",
+        projectName: "Hydrojan – RoboSub Team Website",
+        img: "hydrojan.png",
+        description: "Hydrojan is a modern, visually engaging website built for a competitive RoboSub team participating in international underwater robotics challenges. The site showcases the team's innovation, engineering achievements, and autonomous submarine technology.",
+        fullDescription: "Hydrojan is a modern, visually engaging website built for a competitive RoboSub team participating in international underwater robotics challenges. The site showcases the team's innovation, engineering achievements, and autonomous submarine technology.",
+        keyHighlights: [
+            "Team Showcase: Introduces team members, roles, and expertise in robotics, AI, mechanical engineering, and underwater systems",
+            "Project Portfolio: Detailed pages highlighting the autonomous underwater vehicle (AUV), design breakdowns, sensors, electronics, and mission progress",
+            "Competition Updates: Section dedicated to event highlights, achievements, and real-time announcements during RoboSub competitions",
+            "Sponsor & Partner Display: Professionally designed sponsor section to attract industry and academic support",
+            "Media Gallery: High-quality images and videos documenting testing, builds, and underwater missions",
+            "Clean UI & Fast Performance: Responsive UI built to deliver smooth experience across mobile and desktop"
+        ],
+        idealFor: "Strengthening the team's online identity, attracting sponsors, and providing a professional platform to present their robot, research, and annual competition journey",
+        technologies: ["React.js", "Modern Web Design", "Responsive UI", "Media Gallery"],
+        videoUrl: "https://youtu.be/fVlYFV3TVe8",
         link: "#",
+        badge: "Robotics",
+        year: "2024"
     },
+    {
+        projectName: "Coming Soon",
+        img: null,
+        description: "More exciting projects coming soon! Stay tuned for updates.",
+        isComingSoon: true,
+        link: null
+    },
+    {
+        projectName: "Coming Soon",
+        img: null,
+        description: "More exciting projects coming soon! Stay tuned for updates.",
+        isComingSoon: true,
+        link: null
+    }
 ];
 
 const contactConfig = {

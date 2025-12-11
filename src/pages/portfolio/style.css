@@ -1,3 +1,4 @@
+/* Original Masonry Grid Layout */
 .po_items_ho {
     column-width: 15em;
     -moz-column-width: 15em;
@@ -26,6 +27,7 @@
 
 .po_item img {
     max-width: 100%;
+    border-radius: 8px;
 }
 
 .po_item .content {
@@ -46,13 +48,24 @@
     transition: 0.3s ease-in-out;
     opacity: 0;
     border: 1px solid black;
+    padding: 20px;
+    gap: 10px;
 }
 
 .po_item .content {
     opacity: 0;
-    transition-delay: 1s;
     transition: 0.3s ease;
-    font-size: 20px;
+    font-size: 16px;
+}
+
+.po_item .content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.po_item .content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 .po_item:hover {
@@ -67,19 +80,101 @@
     opacity: 1;
 }
 
-.po_item:hover .content {
-    opacity: 1;
-    color: var(--secondary-color);
-}
-
-.po_item .content a {
+.po_item .content .view-link {
     background: var(--bg-color);
     border: solid 1px var(--text-color);
-    padding: 4px 8px;
+    padding: 8px 16px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    margin: 5px;
 }
 
-.po_item .content a:hover {
+.po_item .content .view-link:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
     text-decoration: none;
+}
+
+/* Project Badges */
+.project-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-year {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+}
+
+/* Coming Soon Items */
+.coming-soon-item {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.coming-soon-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.coming-soon-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.coming-soon-item h4 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.coming-soon-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .po_items_ho {
+        column-width: 100%;
+    }
 }
