@@ -5,14 +5,14 @@ const meta = {
 };
 
 const introdata = {
-    title: "I’m Tamim Hossain",
+    title: "I'm Tamim Hossain",
     animated: {
-        first: "I love coding",
+        first: "A fullstack web developer",
         second: "I code cool websites",
         third: "I Design Beautiful UI",
     },
     description: "Welcome to my portfolio.Here you can know everything about me my carrer and my carrer in web development and my journey",
-    your_img_url: "https://i.ibb.co/VWjsG6n/IMG-0260-2.jpg",
+    your_img_url: "/me.jpeg",
 };
 
 const dataabout = {
@@ -213,7 +213,7 @@ const dataportfolio = [
 ];
 
 const contactConfig = {
-    YOUR_EMAIL: "amdtamim3@.com",
+    YOUR_EMAIL: "amdtamim3@gmail.com",
     YOUR_FONE: "(+880)1716-605265",
     description: "Contact me via email or phone number and i am really sorry because my contact form is not available right now.",
     // creat an emailjs.com account 

@@ -16,8 +16,7 @@ import {
   dataportfolio,
   contactConfig,
    } from "../../content_option";
-import { Link } from "react-router-dom";
-import { Container, Row, Col,Alert  } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 
 export const Home = () => {
   const [formData, setFormdata] = useState({
@@ -110,22 +109,22 @@ export const Home = () => {
                 </h1>
                 <p className="mb-1x">{introdata.description}</p>
                 <div className="intro_btn-action pb-5">
-                  <Link to="/portfolio" className="text_2">
+                  <a href="#portfolio" className="text_2">
                     <div id="button_p" className="ac_btn btn ">
                       My Project Experiences
                       <div className="ring one"></div>
                       <div className="ring two"></div>
                       <div className="ring three"></div>
                     </div>
-                  </Link>
-                  <Link to="/contact">
+                  </a>
+                  <a href="#contact">
                     <div id="button_h" className="ac_btn btn">
                       Contact Me
                       <div className="ring one"></div>
                       <div className="ring two"></div>
                       <div className="ring three"></div>
                     </div>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -258,9 +257,18 @@ export const Home = () => {
             </div>
           </Col>
         </Row>
+      </Container>
+      </section>
+      <section id="eca" className="eca">
+      <Container className="About-header">
+        <Row className="mb-5 mt-3 pt-md-3">
+          <Col lg="8">
+            <h1 className="display-4 mb-4 about-title">Extra Curricular Activities</h1>
+            <hr className="t_border my-4 ml-0 text-left" />
+          </Col>
+        </Row>
         <Row className="sec_sp">
           <Col lg="12">
-            <h3 className="color_sec py-4 section-subtitle">Extra Curricular Activities</h3>
             <div className="eca-timeline">
               {extraCurricularActivities.map((eca, i) => (
                 <div key={i} className="eca-item">
@@ -305,20 +313,82 @@ export const Home = () => {
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
-        <div className="mb-5 po_items_ho">
+        <Row className="mb-5">
           {dataportfolio.map((data, i) => {
+            if (data.isComingSoon) {
+              return (
+                <Col lg="4" md="6" key={i} className="mb-4">
+                  <div className="project-card coming-soon-card">
+                    <div className="coming-soon-content">
+                      <div className="coming-soon-icon">🚀</div>
+                      <h4>{data.projectName}</h4>
+                      <p>{data.description}</p>
+                    </div>
+                  </div>
+                </Col>
+              );
+            }
             return (
-              <div key={i} className="po_item">
-                <img src={data.img} alt="" />
-                <div className="content">
-                  <h4>{data.projectName}</h4>
-                  <p style={{fontSize:"12px"}}>{data.desctiption}</p>
-                  <a href={data.link}>view project</a>
+              <Col lg="4" md="6" key={i} className="mb-4">
+                <div className="project-card">
+                  {data.badge && (
+                    <span className="project-badge">{data.badge}</span>
+                  )}
+                  {data.year && (
+                    <span className="project-year">{data.year}</span>
+                  )}
+                  <div className="project-media">
+                    {data.videoUrl ? (
+                      <div className="video-container">
+                        <iframe
+                          src={(() => {
+                            let embedUrl = data.videoUrl;
+                            if (embedUrl.includes('youtu.be/')) {
+                              const videoId = embedUrl.split('youtu.be/')[1].split('?')[0];
+                              embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                            } else if (embedUrl.includes('youtube.com/watch?v=')) {
+                              const videoId = embedUrl.split('watch?v=')[1].split('&')[0];
+                              embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                            } else if (!embedUrl.includes('youtube.com/embed/')) {
+                              embedUrl = embedUrl.replace('youtube.com/', 'youtube.com/embed/').replace('watch?v=', 'embed/');
+                            }
+                            return embedUrl;
+                          })()}
+                          title={data.projectName}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="project-video"
+                        ></iframe>
+                      </div>
+                    ) : (
+                      <img src={data.img} alt={data.projectName} className="project-image" />
+                    )}
+                  </div>
+                  <div className="project-content">
+                    <h4 className="project-title">{data.projectName}</h4>
+                    <p className="project-description">{data.description}</p>
+                    {data.technologies && (
+                      <div className="project-technologies">
+                        {data.technologies.slice(0, 3).map((tech, idx) => (
+                          <span key={idx} className="tech-tag">{tech}</span>
+                        ))}
+                        {data.technologies.length > 3 && (
+                          <span className="tech-tag">+{data.technologies.length - 3} more</span>
+                        )}
+                      </div>
+                    )}
+                    {data.link && data.link !== "#" && (
+                      <a href={data.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                        View Project →
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Col>
             );
           })}
-        </div>
+        </Row>
       </Container>
       </section>
       <section id="contact" className="contact">
@@ -335,11 +405,10 @@ export const Home = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="12">
+          <Col lg="12" className="mb-4">
             <Alert
-              //show={formData.show}
               variant={formData.variant}
-              className={`rounded-0 co_alert ${
+              className={`contact-alert ${
                 formData.show ? "d-block" : "d-none"
               }`}
               onClose={() => setFormdata({ show: false })}
@@ -348,72 +417,93 @@ export const Home = () => {
               <p className="my-0">{formData.alertmessage}</p>
             </Alert>
           </Col>
-          <Col lg="5" className="mb-5">
-            <h3 className="color_sec py-4">Get in touch</h3>
-            <address>
-              <strong>Email:</strong>{" "}
-              <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
-                {contactConfig.YOUR_EMAIL}
-              </a>
-              <br />
-              <br />
-              {contactConfig.hasOwnProperty("YOUR_FONE") ? (
-                <p>
-                  <strong>Phone:</strong> {contactConfig.YOUR_FONE}
-                </p>
-              ) : (
-                ""
-              )}
-            </address>
-            <p>{contactConfig.description}</p>
+          <Col lg="5" className="mb-5 mb-lg-0">
+            <div className="contact-info-card">
+              <h3 className="contact-section-title">Get in touch</h3>
+              <p className="contact-description">{contactConfig.description}</p>
+              <div className="contact-details">
+                <div className="contact-item">
+                  <div className="contact-icon">✉️</div>
+                  <div className="contact-info">
+                    <strong>Email</strong>
+                    <a href={`mailto:${contactConfig.YOUR_EMAIL}`} className="contact-link">
+                      {contactConfig.YOUR_EMAIL}
+                    </a>
+                  </div>
+                </div>
+                {contactConfig.hasOwnProperty("YOUR_FONE") && (
+                  <div className="contact-item">
+                    <div className="contact-icon">📞</div>
+                    <div className="contact-info">
+                      <strong>Phone</strong>
+                      <a href={`tel:${contactConfig.YOUR_FONE}`} className="contact-link">
+                        {contactConfig.YOUR_FONE}
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </Col>
-          <Col lg="7" className="d-flex align-items-center">
-            <form onSubmit={handleSubmit} className="contact__form w-100">
-              <Row>
-                <Col lg="6" className="form-group">
-                  <input
-                    className="form-control"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name || ""}
-                    type="text"
-                    required
+          <Col lg="7">
+            <div className="contact-form-wrapper">
+              <form onSubmit={handleSubmit} className="contact__form">
+                <div className="form-row-custom">
+                  <div className="form-group-custom">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input
+                      className="form-input"
+                      id="name"
+                      name="name"
+                      placeholder="Your name"
+                      value={formData.name || ""}
+                      type="text"
+                      required
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group-custom">
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input
+                      className="form-input"
+                      id="email"
+                      name="email"
+                      placeholder="your.email@example.com"
+                      type="email"
+                      value={formData.email || ""}
+                      required
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="form-group-custom">
+                  <label htmlFor="message" className="form-label">Message</label>
+                  <textarea
+                    className="form-textarea"
+                    id="message"
+                    name="message"
+                    placeholder="Tell me about your project or just say hello..."
+                    rows="6"
+                    value={formData.message}
                     onChange={handleChange}
-                  />
-                </Col>
-                <Col lg="6" className="form-group">
-                  <input
-                    className="form-control rounded-0"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    type="email"
-                    value={formData.email || ""}
                     required
-                    onChange={handleChange}
-                  />
-                </Col>
-              </Row>
-              <textarea
-                className="form-control rounded-0"
-                id="message"
-                name="message"
-                placeholder="Message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-              <br />
-              <Row>
-                <Col lg="12" className="form-group">
-                  <button className="btn ac_btn" type="submit">
-                    {formData.loading ? "Sending..." : "Send"}
-                  </button>
-                </Col>
-              </Row>
-            </form>
+                  ></textarea>
+                </div>
+                <button className="contact-submit-btn" type="submit" disabled={formData.loading}>
+                  {formData.loading ? (
+                    <>
+                      <span className="btn-spinner"></span>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <span className="btn-arrow">→</span>
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </Col>
         </Row>
       </Container>

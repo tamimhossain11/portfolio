@@ -1,27 +1,49 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  useLocation,
-} from "react-router-dom";
-import withRouter from "../hooks/withRouter";
+import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./routes";
 import Headermain from "../header";
-import AnimatedCursor  from "../hooks/AnimatedCursor";
+import AnimatedCursor from "../hooks/AnimatedCursor";
 import "./App.css";
 
-function _ScrollToTop(props) {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return props.children;
-}
-const ScrollToTop = withRouter(_ScrollToTop);
-
 export default function App() {
+  useEffect(() => {
+    // Smooth scroll behavior for anchor links
+    const handleAnchorClick = (e) => {
+      let target = e.target;
+      // Check if clicked element or its parent is an anchor tag
+      while (target && target.tagName !== "A") {
+        target = target.parentElement;
+      }
+      
+      if (target && target.tagName === "A") {
+        const href = target.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          }
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+    return () => {
+      document.removeEventListener("click", handleAnchorClick);
+    };
+  }, []);
+
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <div className="cursor__dot">
         <AnimatedCursor
           innerSize={15}
@@ -32,10 +54,8 @@ export default function App() {
           outerScale={5}
         />
       </div>
-      <ScrollToTop>
-        <Headermain />
-        <AppRoutes />
-      </ScrollToTop>
+      <Headermain />
+      <AppRoutes />
     </Router>
   );
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
-import { Link } from "react-router-dom";
 import { logotext, socialprofils } from "../content_option";
 import Themetoggle from "../components/themetoggle";
 
@@ -44,9 +43,9 @@ const Headermain = () => {
     <>
       <header className={`fixed-top site__header ${isScrolled ? "scrolled" : ""}`}>
         <div className="d-flex align-items-center justify-content-between">
-          <Link className="navbar-brand nav_ac" to="/">
+          <a className="navbar-brand nav_ac" href="#home">
             {logotext}
-          </Link>
+          </a>
           <div className="d-flex align-items-center">
             {isSmallScreen ? (
               <>
@@ -57,21 +56,21 @@ const Headermain = () => {
               </>
             ) : (
               <div className="the_menu">
-                <Link to="/" className="nav-link">
+                <a href="#home" className="nav-link">
                   Home
-                </Link>
-                <Link to="/portfolio" className="nav-link">
-                  Project Experience
-                </Link>
-                <Link to="/about" className="nav-link">
+                </a>
+                <a href="#about" className="nav-link">
                   About me
-                </Link>
-                <Link to="/eca" className="nav-link">
+                </a>
+                <a href="#portfolio" className="nav-link">
+                  Project Experience
+                </a>
+                <a href="#eca" className="nav-link">
                   ECA
-                </Link>
-                <Link to="/contact" className="nav-link">
+                </a>
+                <a href="#contact" className="nav-link">
                   Contact me
-                </Link>
+                </a>
                 <Themetoggle />
               </div>
             )}
@@ -85,29 +84,29 @@ const Headermain = () => {
                 <div className="menu__container p-3">
                   <ul className="the_menu">
                     <li className="menu_item">
-                      <Link onClick={handleToggle} to="/" className="my-3">
+                      <a onClick={handleToggle} href="#home" className="my-3">
                         Home
-                      </Link>
+                      </a>
                     </li>
                     <li className="menu_item">
-                      <Link onClick={handleToggle} to="/portfolio" className="my-3">
-                        Project Experience
-                      </Link>
-                    </li>
-                    <li className="menu_item">
-                      <Link onClick={handleToggle} to="/about" className="my-3">
+                      <a onClick={handleToggle} href="#about" className="my-3">
                         About me
-                      </Link>
+                      </a>
                     </li>
                     <li className="menu_item">
-                      <Link onClick={handleToggle} to="/eca" className="my-3">
+                      <a onClick={handleToggle} href="#portfolio" className="my-3">
+                        Project Experience
+                      </a>
+                    </li>
+                    <li className="menu_item">
+                      <a onClick={handleToggle} href="#eca" className="my-3">
                         ECA
-                      </Link>
+                      </a>
                     </li>
                     <li className="menu_item">
-                      <Link onClick={handleToggle} to="/contact" className="my-3">
+                      <a onClick={handleToggle} href="#contact" className="my-3">
                         Contact me
-                      </Link>
+                      </a>
                     </li>
                     <li className="menu_item">
                       <div onClick={handleToggle} className="my-3">

@@ -24,16 +24,18 @@
     --gradient-secondary: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
 }
 
-html,
-body {
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
     height: 100%;
 }
 
 body {
     margin: 0;
-    height: 100%;
+    min-height: 100%;
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background-color: var(--bg-color);
     background-image: 
         radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.03) 0px, transparent 50%),
@@ -46,6 +48,7 @@ body {
     border-left: 10px solid var(--primary-color);
     border-right: 10px solid var(--primary-color);
     transition: all 0.3s ease;
+    position: relative;
 }
 
 ul {
