@@ -95,21 +95,21 @@ const allSkills = [
     { name: "Angular", value: 70, category: "Frontend" },
     { name: "React Native", value: 60, category: "Frontend" },
     { name: "jQuery", value: 70, category: "Frontend" },
-    
+
     // Backend
     { name: "Node.js", value: 85, category: "Backend" },
     { name: "Express.js", value: 80, category: "Backend" },
     { name: "RESTful APIs", value: 88, category: "Backend" },
-    
+
     // Databases
     { name: "PostgreSQL", value: 80, category: "Database" },
     { name: "MySQL", value: 85, category: "Database" },
     { name: "MongoDB", value: 70, category: "Database" },
-    
+
     // Languages
     { name: "Python", value: 75, category: "Language" },
     { name: "Java", value: 70, category: "Language" },
-    
+
     // DevOps & Cloud
     { name: "AWS (S3)", value: 75, category: "DevOps" },
     { name: "Google Cloud", value: 70, category: "DevOps" },
@@ -118,7 +118,7 @@ const allSkills = [
     { name: "cPanel", value: 75, category: "DevOps" },
     { name: "Git", value: 85, category: "DevOps" },
     { name: "GitHub", value: 90, category: "DevOps" },
-    
+
     // CMS & Tools
     { name: "WordPress", value: 80, category: "CMS" },
     { name: "Contentful", value: 75, category: "CMS" },
@@ -197,11 +197,24 @@ const dataportfolio = [
         year: "2024"
     },
     {
-        projectName: "Coming Soon",
-        img: null,
-        description: "More exciting projects coming soon! Stay tuned for updates.",
-        isComingSoon: true,
-        link: null
+        projectName: "WICEBD",
+        img: "wicebd.jpeg",
+        description: "WICEBD is a dynamic and professionally designed event platform built to manage and showcase the Women in Computer Engineering Bangladesh (WICEBD) initiative, including competitions, registrations, and participant engagement.",
+        fullDescription: "WICEBD is a dynamic and professionally designed event platform built to manage and showcase the Women in Computer Engineering Bangladesh (WICEBD) initiative. The platform streamlines event registration, highlights competition categories, and provides a centralized hub for participants, organizers, and sponsors. It reflects innovation, inclusivity, and the growing impact of women in technology through a modern and engaging digital experience.",
+        keyHighlights: [
+            "Participant Registration System: Seamless multi-category registration system with structured data handling and payment integration",
+            "Competition Management: Dedicated sections for Olympiad, project showcase, and Robo Soccer with detailed information and updates",
+            "User Account System: Secure account creation and tracking for participants to manage their registration and submissions",
+            "Admin Dashboard & Analytics: Powerful backend dashboard with data visualization, registration tracking, and export functionality",
+            "Sponsor & Partner Integration: Professionally structured sections to highlight sponsors and collaborators",
+            "Responsive UI & Performance: Optimized for speed and usability across all devices with a clean and modern interface"
+        ],
+        idealFor: "Managing large-scale tech events, streamlining participant registration, and creating a strong digital presence for national and international competitions",
+        technologies: ["React.js", "Node.js", "SQL Database", "bKash Payment Integration", "Responsive UI"],
+        videoUrl: "https://youtu.be/oSMqthOyhAQ",
+        link: "#",
+        badge: "Event Platform",
+        year: "2025"
     },
     {
         projectName: "Coming Soon",
