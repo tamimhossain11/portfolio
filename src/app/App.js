@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, MotionConfig, motion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, MotionConfig } from "framer-motion";
 import Preloader from "../components/Preloader";
 import Cursor from "../components/Cursor";
 import Nav from "../components/Nav";
+import ScrollProgress from "../components/ScrollProgress";
 import Hero from "../sections/Hero";
 import Impact, { Marquee } from "../sections/Impact";
 import Work from "../sections/Work";
@@ -26,8 +27,6 @@ const shouldShowIntro = () => {
 export default function App() {
     const [showIntro] = useState(shouldShowIntro);
     const [ready, setReady] = useState(!showIntro);
-    const { scrollYProgress } = useScroll();
-    const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
     useEffect(() => initSmoothScroll(), []);
 
@@ -49,7 +48,7 @@ export default function App() {
     return (
         <MotionConfig reducedMotion="user">
             <AnimatePresence>{!ready && <Preloader key="preloader" onDone={finishIntro} />}</AnimatePresence>
-            <motion.div className="scroll-progress" style={{ scaleX: progress }} />
+            <ScrollProgress />
             <Cursor />
             <Nav ready={ready} />
             <main>

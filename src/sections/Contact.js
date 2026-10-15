@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiArrowUp, FiArrowUpRight, FiCheck, FiCopy, FiDownload } from "react-icons/fi";
+import { FiArrowUpRight, FiCheck, FiCopy, FiDownload } from "react-icons/fi";
 import Magnetic from "../components/Magnetic";
 import { MaskLine, Reveal } from "../components/Reveal";
-import { handleAnchor } from "../lib/scroll";
 import { useLocalTime } from "../lib/hooks";
 import { profile, socials } from "../content_option";
 import "./Contact.css";
@@ -120,9 +119,6 @@ export default function Contact() {
                                 React <span className="footer-dim">& Framer Motion</span>
                             </p>
                         </div>
-                        <a href="#top" className="to-top" onClick={handleAnchor} aria-label="Back to top">
-                            <FiArrowUp />
-                        </a>
                     </div>
 
                     <div className="footer-bottom meta">
