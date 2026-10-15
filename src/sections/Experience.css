@@ -1,0 +1,150 @@
+.exp-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+}
+
+.exp-aside {
+    position: sticky;
+    top: 120px;
+}
+
+.section-aside {
+    color: var(--text-dim);
+    font-size: 16px;
+    max-width: 30em;
+}
+
+.timeline {
+    position: relative;
+    display: grid;
+    gap: 64px;
+    padding-left: 44px;
+}
+
+.timeline-track {
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--line);
+    overflow: hidden;
+}
+
+.timeline-fill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--accent), color-mix(in srgb, var(--accent) 40%, #38bdf8));
+    transform-origin: top;
+}
+
+.job {
+    position: relative;
+}
+
+.job-dot {
+    position: absolute;
+    left: -44px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent-ink);
+    box-shadow: 0 0 0 6px var(--bg);
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 12px;
+}
+
+.job-role {
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+.job-company {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    font-weight: 600;
+    color: var(--accent-ink);
+    margin-top: 4px;
+}
+
+.job-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.job-points {
+    display: grid;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.job-points li {
+    position: relative;
+    padding-left: 22px;
+    color: var(--text-dim);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.job-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 10px;
+    height: 1px;
+    background: var(--accent-ink);
+}
+
+.job-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.job-stack .chip {
+    font-size: 12px;
+    padding: 4px 10px;
+}
+
+@media (max-width: 900px) {
+    .exp-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .exp-aside {
+        position: static;
+    }
+
+    .timeline {
+        padding-left: 32px;
+    }
+
+    .job-dot {
+        left: -32px;
+    }
+}

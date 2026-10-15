@@ -1,0 +1,229 @@
+.statement {
+    margin: 24px 0 clamp(48px, 7vw, 80px);
+    font-size: clamp(1.6rem, 3.4vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    max-width: 28ch;
+}
+
+.statement-word {
+    display: inline;
+}
+
+.bento {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas:
+        "photo now now"
+        "photo loc lang"
+        "edu edu focus";
+    gap: 16px;
+}
+
+.b-photo {
+    grid-area: photo;
+    position: relative;
+    padding: 0;
+    min-height: 420px;
+}
+
+.b-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+}
+
+.photo-caption {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(10, 10, 11, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.bento-card {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 220px;
+}
+
+.b-now { grid-area: now; }
+.b-loc { grid-area: loc; }
+.b-edu { grid-area: edu; }
+.b-focus { grid-area: focus; }
+.b-lang { grid-area: lang; }
+
+.bento-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+
+.bento-label svg {
+    color: var(--accent-ink);
+}
+
+.now-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: auto;
+}
+
+.now-list div,
+.edu li div {
+    display: grid;
+    gap: 4px;
+}
+
+.now-list strong {
+    font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+}
+
+.now-list span,
+.edu li div span {
+    color: var(--text-dim);
+    font-size: 14px;
+}
+
+.loc {
+    margin-top: auto;
+    display: grid;
+}
+
+.loc strong {
+    font-size: clamp(2.4rem, 4.4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.loc span {
+    font-size: 1.4rem;
+    color: var(--text-dim);
+}
+
+.loc-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.edu {
+    display: grid;
+    gap: 16px;
+}
+
+.edu li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.edu li strong {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.edu .meta {
+    font-size: 11px;
+    color: var(--text-faint);
+    white-space: nowrap;
+    padding-top: 3px;
+}
+
+.focus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.langs {
+    display: grid;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.langs li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+}
+
+.langs li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.langs strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+}
+
+.langs .meta {
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+@media (max-width: 1000px) {
+    .bento {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "now now"
+            "photo loc"
+            "photo lang"
+            "edu edu"
+            "focus focus";
+    }
+}
+
+@media (max-width: 600px) {
+    .bento {
+        grid-template-columns: 1fr;
+        grid-template-areas: "photo" "now" "loc" "lang" "edu" "focus";
+    }
+
+    .now-list {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-card {
+        min-height: 0;
+        padding: 22px;
+    }
+
+    .bento-card.b-photo {
+        padding: 0;
+        aspect-ratio: 4 / 5;
+    }
+}

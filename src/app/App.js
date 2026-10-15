@@ -1,65 +1,68 @@
-import React, { useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router } from "react-router-dom";
-import AppRoutes from "./routes";
-import Headermain from "../header";
-import AnimatedCursor from "../hooks/AnimatedCursor";
-import "./App.css";
+import React, { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, MotionConfig, motion, useScroll, useSpring } from "framer-motion";
+import Preloader from "../components/Preloader";
+import Cursor from "../components/Cursor";
+import Nav from "../components/Nav";
+import Hero from "../sections/Hero";
+import Impact, { Marquee } from "../sections/Impact";
+import Work from "../sections/Work";
+import Experience from "../sections/Experience";
+import About from "../sections/About";
+import { Leadership, Skills } from "../sections/Skills";
+import Contact from "../sections/Contact";
+import { initSmoothScroll, lockScroll, prefersReducedMotion } from "../lib/scroll";
+import "../components/components.css";
+
+// Show the intro once per browser session.
+const shouldShowIntro = () => {
+    if (prefersReducedMotion()) return false;
+    try {
+        return !sessionStorage.getItem("intro-seen");
+    } catch (e) {
+        return true;
+    }
+};
 
 export default function App() {
-  useEffect(() => {
-    // Smooth scroll behavior for anchor links
-    const handleAnchorClick = (e) => {
-      let target = e.target;
-      // Check if clicked element or its parent is an anchor tag
-      while (target && target.tagName !== "A") {
-        target = target.parentElement;
-      }
-      
-      if (target && target.tagName === "A") {
-        const href = target.getAttribute("href");
-        if (href && href.startsWith("#")) {
-          e.preventDefault();
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            // Calculate header offset (adjust based on header height)
-            const headerOffset = window.innerWidth <= 768 ? 70 : 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const [showIntro] = useState(shouldShowIntro);
+    const [ready, setReady] = useState(!showIntro);
+    const { scrollYProgress } = useScroll();
+    const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
-            // Use requestAnimationFrame for better mobile performance
-            requestAnimationFrame(() => {
-              window.scrollTo({
-                top: Math.max(0, offsetPosition),
-                behavior: "smooth"
-              });
-            });
-          }
-        }
-      }
-    };
+    useEffect(() => initSmoothScroll(), []);
 
-    document.addEventListener("click", handleAnchorClick, { passive: false });
-    return () => {
-      document.removeEventListener("click", handleAnchorClick);
-    };
-  }, []);
+    useEffect(() => {
+        if (!showIntro) return;
+        if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+        window.scrollTo(0, 0);
+        lockScroll(true);
+    }, [showIntro]);
 
-  return (
-    <Router>
-      <div className="cursor__dot">
-        <AnimatedCursor
-          innerSize={15}
-          outerSize={15}
-          color="255, 255 ,255"
-          outerAlpha={0.4}
-          innerScale={0.7}
-          outerScale={5}
-        />
-      </div>
-      <Headermain />
-      <AppRoutes />
-    </Router>
-  );
+    const finishIntro = useCallback(() => {
+        try {
+            sessionStorage.setItem("intro-seen", "1");
+        } catch (e) {}
+        lockScroll(false);
+        setReady(true);
+    }, []);
+
+    return (
+        <MotionConfig reducedMotion="user">
+            <AnimatePresence>{!ready && <Preloader key="preloader" onDone={finishIntro} />}</AnimatePresence>
+            <motion.div className="scroll-progress" style={{ scaleX: progress }} />
+            <Cursor />
+            <Nav ready={ready} />
+            <main>
+                <Hero ready={ready} />
+                <Marquee />
+                <Impact />
+                <Work />
+                <Experience />
+                <About />
+                <Skills />
+                <Leadership />
+                <Contact />
+            </main>
+        </MotionConfig>
+    );
 }
